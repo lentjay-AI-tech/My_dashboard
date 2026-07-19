@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sovereign Node - Local AI Stack Control Panel</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:active {
+            background: #475569;
+        }
+    </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 min-h-screen selection:bg-cyan-500/30 selection:text-cyan-400 antialiased">
+
+    <!-- Top Navigation -->
+    <header class="border-b border-slate-800/80 bg-[#0f172a]/60 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-emerald-500 flex items-center justify-center font-bold text-slate-900 shadow-lg shadow-cyan-500/10">Ω</div>
+            <div>
+                <h1 class="text-sm font-bold tracking-tight text-white uppercase">Sovereign Node</h1>
+                <p class="text-[10px] text-cyan-400/80 tracking-wider font-medium uppercase mono">Offline AI IDE Engine v2.4.1</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-6 text-xs">
+            <div class="flex items-center space-x-2 bg-emerald-950/40 border border-emerald-500/30 rounded-full px-3 py-1 text-emerald-400 font-medium">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Zero Cloud Air-Gap Active</span>
+            </div>
+            <div class="text-slate-400 mono">Latency: <span class="text-cyan-400 font-bold">0.4ms</span></div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Dashboard Grid -->
+    <main class="p-6 grid grid-cols-1 xl:grid-cols-12 gap-6 max-w-[1800px] mx-auto">
+        
+        <!-- LEFT COLUMN: Psych Metrics & Orchestration Controller (5 Cols) -->
+        <section class="xl:col-span-5 flex flex-col space-y-6">
+            
+            <!-- Psychological Infrastructure Card -->
+            <div class="bg-[#0f172a]/90 border border-slate-800 rounded-xl p-5 shadow-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-cyan-500/5 to-transparent pointer-events-none rounded-bl-full"></div>
+                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center space-x-2">
+                    <span>🧠 Psychological Architecture Matrix</span>
+                </h2>
+                
+                <!-- Live Metric Progress Gauges -->
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1.5">
+                            <span class="text-white">Agency &amp; Autonomy (Sovereignty)</span>
+                            <span class="text-cyan-400 mono font-bold" id="gauge-agency-val">30%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-slate-700/50">
+                            <div id="gauge-agency" class="bg-gradient-to-r from-blue-500 to-cyan-400 h-full w-[30%] transition-all duration-500 ease-out shadow-sm shadow-cyan-500/40"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 italic">Shifting perspective from passive customer to absolute architect.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1.5">
+                            <span class="text-white">Cognitive Mastery (Under the Hood)</span>
+                            <span class="text-emerald-400 mono font-bold" id="gauge-mastery-val">15%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-slate-700/50">
+                            <div id="gauge-mastery" class="bg-gradient-to-r from-cyan-400 to-emerald-400 h-full w-[15%] transition-all duration-500 ease-out shadow-sm shadow-emerald-500/40"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 italic">Replacing black-box engineering mysteries with hard compilation parameters.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-medium mb-1.5">
+                            <span class="text-white">Certainty &amp; Safety Assurance</span>
+                            <span class="text-purple-400 mono font-bold" id="gauge-safety-val">50%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden border border-slate-700/50">
+                            <div id="gauge-safety" class="bg-gradient-to-r from-emerald-400 to-purple-400 h-full w-[50%] transition-all duration-500 ease-out shadow-sm shadow-purple-500/40"></div>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-1 italic">Total asset containment. Zero data leaks to cloud systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Blueprint Orchestration Wizard -->
+            <div class="bg-[#0f172a]/90 border border-slate-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">🛠️ Environment Orchestration Blueprint</h2>
+                
+                <!-- Pipeline Wizard Steps Navigation -->
+                <div class="space-y-3 flex-1">
+                    <!-- Step 1 Trigger -->
+                    <div id="step-card-1" class="border border-slate-800 bg-slate-900/40 rounded-lg p-4 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex space-x-3">
+                                <span id="step-num-1" class="w-5 h-5 mt-1 rounded-md bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-xs mono border border-slate-700">1</span>
+                                <div>
+                                    <h3 class="text-xs font-bold text-white uppercase tracking-wide">Prepare Linux Terminal</h3>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Initialize updating mechanisms, tool chains, and C++ packages inside Termux.</p>
+                                </div>
+                            </div>
+                            <button id="btn-step-1" onclick="runStep1()" class="bg-cyan-500 active:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded text-xs transition shadow-md shadow-cyan-500/10">Compile</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Trigger -->
+                    <div id="step-card-2" class="border border-slate-800 bg-slate-900/20 opacity-50 rounded-lg p-4 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex space-x-3">
+                                <span id="step-num-2" class="w-5 h-5 mt-1 rounded-md bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-xs mono border border-slate-700">2</span>
+                                <div>
+                                    <h3 class="text-xs font-bold text-white uppercase tracking-wide">Launch Runtime Engine</h3>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Pull local model file down onto hardware disk and initialize low-level runtime.</p>
+                                </div>
+                            </div>
+                            <button id="btn-step-2" onclick="runStep2()" disabled class="bg-slate-800 text-slate-500 font-bold px-4 py-2 rounded text-xs transition">Deploy</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 Trigger -->
+                    <div id="step-card-3" class="border border-slate-800 bg-slate-900/20 opacity-50 rounded-lg p-4 transition-all duration-300">
+                        <div class="flex items-center justify-between">
+                            <div class="flex space-x-3">
+                                <span id="step-num-3" class="w-5 h-5 mt-1 rounded-md bg-slate-800 text-slate-400 flex items-center justify-center font-bold text-xs mono border border-slate-700">3</span>
+                                <div>
+                                    <h3 class="text-xs font-bold text-white uppercase tracking-wide">Activate Python Conduit</h3>
+                                    <p class="text-[11px] text-slate-400 mt-0.5">Load script architectures and strict runtime JSON rules directly into loop.</p>
+                                </div>
+                            </div>
+                            <button id="btn-step-3" onclick="runStep3()" disabled class="bg-slate-800 text-slate-500 font-bold px-4 py-2 rounded text-xs transition">Bind API</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hardware Resource Configuration Options -->
+                <div class="border-t border-slate-800/80 pt-4 mt-4 grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1.5 mono">Thread Optimization allocation</label>
+                        <select id="param-threads" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-3 text-xs text-white focus:outline-none focus:border-cyan-500 font-medium">
+                            <option value="2">2 CPU Cores (Battery Saver)</option>
+                            <option value="4" selected>4 CPU Cores (Balanced Standard)</option>
+                            <option value="6">6 CPU Cores (High Demand)</option>
+                            <option value="8">8 CPU Cores (Max Compute Limit)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1.5 mono">Model Temperature Settings</label>
+                        <select id="param-temp" class="w-full bg-slate-900 border border-slate-700 rounded px-2 py-3 text-xs text-white focus:outline-none focus:border-cyan-500 font-medium">
+                            <option value="0.1" selected>0.1 - Deterministic Parsers</option>
+                            <option value="0.4">0.4 - Code Generation</option>
+                            <option value="0.7">0.7 - Content Copywriting</option>
+                            <option value="1.0">1.0 - Uncapped Pure Output</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN: Console Sandbox Engine & Prompt Terminal Playground (7 Cols) -->
+        <section class="xl:col-span-7 flex flex-col space-y-6">
+            
+            <!-- Terminal Output System Emulator Console -->
+            <div class="bg-[#0b0f19] border border-slate-800/90 rounded-xl shadow-2xl flex flex-col h-[280px]">
+                <div class="bg-[#0f172a] border-b border-slate-800 px-4 py-2.5 flex items-center justify-between rounded-t-xl">
+                    <div class="flex items-center space-x-2">
+                        <div class="flex space-x-1.5">
+                            <span class="w-3 bg-red-500/20 border border-red-500/40 rounded-full h-3 inline-block"></span>
+                            <span class="w-3 bg-yellow-500/20 border border-yellow-500/40 rounded-full h-3 inline-block"></span>
+                            <span class="w-3 bg-green-500/20 border border-green-500/40 rounded-full h-3 inline-block"></span>
+                        </div>
+                        <span class="text-xs font-bold text-slate-400 tracking-wide uppercase font-mono pl-2">termux_session_01@localhost:~</span>
+                    </div>
+                    <span class="text-[10px] text-slate-500 mono uppercase font-semibold">C++ Standard Streams</span>
+                </div>
+                
+                <!-- Simulated Live Console Feed Container -->
+                <div id="terminal-screen" class="p-4 flex-1 overflow-y-auto text-xs mono text-slate-300 space-y-1.5 leading-relaxed bg-[#05070d]">
+                    <div class="text-slate-500 italic">// Core hardware components initialized successfully. Ready to run local processes.</div>
+                    <div class="flex items-center space-x-2 text-cyan-400">
+                        <span>$</span>
+                        <span class="text-slate-300 font-semibold animate-pulse">Waiting for compile directive down from system supervisor...</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Input / Output Logic Sandbox Playground -->
+            <div id="playground-container" class="bg-[#0f172a]/90 border border-slate-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col opacity-40 transition-opacity duration-300 pointer-events-none">
+                <div class="flex items-center justify-between mb-4 border-b border-slate-800/80 pb-3">
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center space-x-2">
+                        <span class="w-2 h-2 rounded-full bg-slate-600 shadow animate-ping" id="status-dot"></span>
+                        <span id="status-title" class="text-white">Local Execution Sandbox Playground</span>
+                    </h2>
+                    <span class="text-[10px] bg-slate-800 text-slate-400 font-bold uppercase px-2 py-0.5 rounded border border-slate-700/60 mono" id="runtime-engine-tag">Engine: Suspended</span>
+                </div>
+
+                <!-- Input Prompt Structure Box Interface -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+                    <div class="flex flex-col space-y-3">
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1.5 mono">Select Schema Format Constraints</label>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button onclick="setSchema('json')" id="schema-json" class="bg-cyan-950/40 border border-cyan-500/50 text-cyan-400 font-bold px-2 py-3 rounded text-xs uppercase tracking-wide transition active:bg-cyan-900/60">Strict JSON</button>
+                                <button onclick="setSchema('markdown')" id="schema-md" class="bg-slate-900 border border-slate-800 text-slate-400 font-bold px-2 py-3 rounded text-xs uppercase tracking-wide transition active:bg-slate-800">Markdown</button>
+                                <button onclick="setSchema('hybrid')" id="schema-hybrid" class="bg-slate-900 border border-slate-800 text-slate-400 font-bold px-2 py-3 rounded text-xs uppercase tracking-wide transition active:bg-slate-800">Hybrid Doc</button>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 flex flex-col">
+                            <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1.5 mono">System Constraints Directive</label>
+                            <textarea id="system-prompt" readonly class="w-full flex-1 bg-[#05070d] border border-slate-800 text-xs text-cyan-400/90 font-mono p-3 rounded resize-none focus:outline-none focus:border-slate-700/80 leading-relaxed">System engine context bound locally.</textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-slate-400 tracking-wider mb-1.5 mono">User Prompt Query Input</label>
+                            <div class="relative flex items-center">
+                                <input type="text" id="user-input" value="Analyze this terminal log: 'Error: Connection refused on port 8080'" class="w-full bg-[#05070d] border border-slate-800 focus:border-cyan-500 text-xs text-white p-3 pr-28 rounded focus:outline-none font-medium">
+                                <button id="btn-run" onclick="executeInference()" class="absolute right-2 bg-gradient-to-r from-cyan-500 to-emerald-500 active:from-cyan-400 active:to-emerald-400 text-slate-950 font-bold px-4 py-2 rounded text-xs tracking-wide transition shadow-lg">Run Pipeline</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Hardware Processing Output Interface Display -->
+                    <div class="flex flex-col space-y-3">
+                        <div class="flex justify-between items-center text-[10px] uppercase font-bold text-slate-400 tracking-wider font-mono">
+                            <span>Engine Processing Stream Results</span>
+                            <span id="telemetry-speed" class="text-emerald-400 font-bold">0.0 tk/s</span>
+                        </div>
+                        <div class="flex-1 bg-[#05070d] border border-slate-800 p-4 rounded overflow-y-auto text-xs mono leading-relaxed select-text min-h-[220px]">
+                            <pre id="output-block" class="whitespace-pre-wrap text-slate-300">Run local orchestration steps above to unlock live interface streaming generation capabilities.</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Operational State Automation Scripting Layer Logic -->
+    <script>
+        let systemStepLevel = 0;
+        let selectedSchemaMode = 'json';
+
+        const jsonPrompt = 'You are a highly efficient JSON parser. You must only output valid JSON.\nDo not write introductory or concluding text. Your response must match this schema:\n{\n  "status": "success|failed",\n  "analysis": "your 1-sentence thought"\n}';
+        const markdownPrompt = 'You are a professional documentation specialist.\nFormat your response using structured, high-impact markdown with bold items, headers, and organized bullet logs.';
+        const hybridPrompt = 'You are a multi-agent conduit engine.\nOutput a root JSON container string, but compile the interior text strings completely in rich Markdown formatting scripts for deep code readability.';
+
+        function setSchema(mode) {
+            if(systemStepLevel < 3) return;
+            selectedSchemaMode = mode;
+            
+            ['json', 'md', 'hybrid'].forEach(m => {
+                const b = document.getElementById(`schema-${m}`);
+                b.className = "bg-slate-900 border border-slate-800 text-slate-400 font-bold px-2 py-3 rounded text-xs uppercase tracking-wide transition active:bg-slate-800";
+            });
+
+            const activeBtn = document.getElementById(`schema-${mode}`);
+            activeBtn.className = "bg-cyan-950/40 border border-cyan-500/50 text-cyan-400 font-bold px-2 py-3 rounded text-xs uppercase tracking-wide transition active:bg-cyan-900/60";
+
+            const sysBox = document.getElementById('system-prompt');
+            if(mode === 'json') sysBox.value = jsonPrompt;
+            if(mode === 'markdown') sysBox.value = markdownPrompt;
+            if(mode === 'hybrid') sysBox.value = hybridPrompt;
+            
+            appendConsole(`[SYSTEM]: Switched schema processing matrix into pipeline configuration: [${mode.toUpperCase()}]`);
+        }
+
+        function appendConsole(msg, type = 'info') {
+            const screen = document.getElementById('terminal-screen');
+            const row = document.createElement('div');
+            
+            if (type === 'command') {
+                row.className = "text-cyan-400 font-semibold mt-2";
+                row.innerHTML = `<span class="text-slate-500">$</span> ${msg}`;
+            } else if (type === 'success') {
+                row.className = "text-emerald-400 font-medium";
+                row.innerText = msg;
+            } else if (type === 'error') {
+                row.className = "text-red-400 font-medium";
+                row.innerText = msg;
+            } else {
+                row.className = "text-slate-300";
+                row.innerText = msg;
+            }
+            
+            screen.appendChild(row);
+            screen.scrollTop = screen.scrollHeight;
+        }
+
+        function shiftGauges(agency, mastery, safety) {
+            document.getElementById('gauge-agency').style.width = `${agency}%`;
+            document.getElementById('gauge-agency-val').innerText = `${agency}%`;
+            
+            document.getElementById('gauge-mastery').style.width = `${mastery}%`;
+            document.getElementById('gauge-mastery-val').innerText = `${mastery}%`;
+            
+            document.getElementById('gauge-safety').style.width = `${safety}%`;
+            document.getElementById('gauge-safety-val').innerText = `${safety}%`;
+        }
+
+        function runStep1() {
+            if(systemStepLevel !== 0) return;
+            
+            const btn = document.getElementById('btn-step-1');
+            btn.disabled = true;
+            btn.className = "bg-slate-800 text-slate-500 font-bold px-4 py-2 rounded text-xs transition";
+            
+            appendConsole("pkg update && pkg upgrade -y && pkg install git cmake clang text-api llama.cpp -y", "command");
+            
+            let progress = 0;
+            const lines = [
+                "Updating local repository registry files...",
+                "Reading package lists... Done (342 packages updated)",
+                "Fetching repository updates from remote pools...",
+                "Installing build dependency tools: gcc-clang v16.0",
+                "Cloning compilation manifests for target hardware optimizations...",
+                "Building low-level system binaries using CMake configurations...",
+                "Successfully generated local artifact structures: /usr/bin/llama-server"
+            ];
+
+            let lineIndex = 0;
+            const interval = setInterval(() => {
+                if (lineIndex < lines.length) {
+                    appendConsole(`[COMPILE]: ${lines[lineIndex]}`);
+                    lineIndex++;
+                    shiftGauges(30 + lineIndex * 3, 15 + lineIndex * 5, 50);
+                } else {
+                    clearInterval(interval);
+                    appendConsole("Environment Sandbox verified locally. Runtime binaries bound successfully.", "success");
+                    
+                    systemStepLevel = 1;
+                    
+                    document.getElementById('step-card-1').className = "border border-slate-800 bg-slate-950/20 opacity-60 rounded-lg p-4 transition-all duration-300";
+                    document.getElementById('step-num-1').className = "w-5 h-5 mt-1 rounded-md bg-emerald-950/80 text-emerald-400 flex items-center justify-center font-bold text-xs mono border border-emerald-500/30";
+                    document.getElementById('step-num-1').innerText = "✓";
+                    
+                    const step2 = document.getElementById('step-card-2');
+                    step2.className = "border border-slate-700 bg-slate-900/50 rounded-lg p-4 transition-all duration-300 shadow-md shadow-cyan-500/5";
+                    step2.style.opacity = "1";
+                    
+                    const btn2 = document.getElementById('btn-step-2');
+                    btn2.disabled = false;
+                    btn2.className = "bg-cyan-500 active:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded text-xs transition shadow-md shadow-cyan-500/10";
+                }
+            }, 500);
+        }
+
+        function runStep2() {
+            if(systemStepLevel !== 1) return;
+            
+            const btn = document.getElementById('btn-step-2');
+            btn.disabled = true;
+            btn.className = "bg-slate-800 text-slate-500 font-bold px-4 py-2 rounded text-xs transition";
+            
+            const threadVal = document.getElementById('param-threads').value;
+            appendConsole(`llama-server --model ./model.gguf --port 8080 --ctx-size 2048 --threads ${threadVal}`, "command");
+            
+            appendConsole("[DAEMON]: Locating quantized hardware assets: ./model.gguf");
+            appendConsole("[DAEMON]: Loading parameters directly to memory blocks...");
+            
+            setTimeout(() => {
+                appendConsole("[DAEMON]: KV Cache initialized successfully. Context size limits locked to 2048 tokens.");
+                appendConsole(`[DAEMON]: Thread affinity constraints registered to [${threadVal} Processing Cores].`);
+                appendConsole("[DAEMON]: HTTP local server active and listening on: http://127.0.0.1:8080 🔥", "success");
+                
+                systemStepLevel = 2;
+                shiftGauges(65, 60, 75);
+                
+                document.getElementById('step-card-2').className = "border border-slate-800 bg-slate-950/20 opacity-60 rounded-lg p-4 transition-all duration-300";
+                document.getElementById('step-num-2').className = "w-5 h-5 mt-1 rounded-md bg-emerald-950/80 text-emerald-400 flex items-center justify-center font-bold text-xs mono border border-emerald-500/30";
+                document.getElementById('step-num-2').innerText = "✓";
+                
+                const step3 = document.getElementById('step-card-3');
+                step3.className = "border border-slate-700 bg-slate-900/50 rounded-lg p-4 transition-all duration-300 shadow-md shadow-cyan-500/5";
+                step3.style.opacity = "1";
+                
+                const btn3 = document.getElementById('btn-step-3');
+                btn3.disabled = false;
+                btn3.className = "bg-cyan-500 active:bg-cyan-400 text-slate-950 font-bold px-4 py-2 rounded text-xs transition shadow-md shadow-cyan-500/10";
+            }, 1200);
+        }
+
+        function runStep3() {
+            if(systemStepLevel !== 2) return;
+            
+            const btn = document.getElementById('btn-step-3');
+            btn.disabled = true;
+            btn.className = "bg-slate-800 text-slate-500 font-bold px-4 py-2 rounded text-xs transition";
+            
+            appendConsole("python3 local_conduit_orchestrator.py", "command");
+            appendConsole("[CONDUIT]: Binding endpoints to local runtime loop...");
+            
+            setTimeout(() => {
+                appendConsole("[CONDUIT]: Core API pipelines established. Structured data mapping online.", "success");
+                
+                systemStepLevel = 3;
+                shiftGauges(90, 85, 100);
+                
+                document.getElementById('step-card-3').className = "border border-slate-800 bg-slate-950/20 opacity-60 rounded-lg p-4 transition-all duration-300";
+                document.getElementById('step-num-3').className = "w-5 h-5 mt-1 rounded-md bg-emerald-950/80 text-emerald-400 flex items-center justify-center font-bold text-xs mono border border-emerald-500/30";
+                document.getElementById('step-num-3').innerText = "✓";
+                
+                const play = document.getElementById('playground-container');
+                play.className = "bg-[#0f172a]/90 border border-slate-800 rounded-xl p-5 shadow-xl flex-1 flex flex-col opacity-100 transition-opacity duration-300";
+                
+                document.getElementById('status-dot').className = "w-2 h-2 rounded-full bg-emerald-400 shadow shadow-emerald-400/50 animate-pulse";
+                document.getElementById('runtime-engine-tag').innerText = "Engine: Local-Active";
+                document.getElementById('runtime-engine-tag').className = "text-[10px] bg-emerald-950/60 text-emerald-400 font-bold uppercase px-2 py-0.5 rounded border border-emerald-500/30 mono";
+                
+                setSchema('json');
+            }, 1000);
+        }
+
+        function executeInference() {
+            if(systemStepLevel < 3) return;
+            
+            const userInput = document.getElementById('user-input').value;
+            const tempSetting = document.getElementById('param-temp').value;
+            const outputBox = document.getElementById('output-block');
+            const runBtn = document.getElementById('btn-run');
+            
+            runBtn.disabled = true;
+            runBtn.innerText = "Processing...";
+            outputBox.innerText = "";
+            
+            appendConsole(`[PIPELINE]: Processing inference task through temperature scale [${tempSetting}]...`);
+            
+            let responseText = "";
+            if (selectedSchemaMode === 'json') {
+                responseText = `{\n  "status": "success",\n  "analysis": "Terminal log connection refusal resolved completely by running local loop adjustments on port 8080.",\n  "telemetry": {\n    "environment": "Termux-Proot",\n    "execution_mode": "Deterministic-Deterministic"\n  }\n}`;
+            } else if (selectedSchemaMode === 'markdown') {
+                responseText = `### Local System Diagnostics Report\n\n* **Identified Event:** Connection error on interface link \`port 8080\`.\n* **Root Diagnostic:** The runtime daemon server engine had not completed allocation processes before client initialized connection protocols.\n* **Resolution Script:** Confirmed process binding actions achieved state locks cleanly. Offline pipeline confirmed green.`;
+            } else {
+                responseText = `{\n  "status": "active",\n  "payload_documentation": "### Conduit Stream Success\\n\\nYour offline processing pipeline executed with **0.1 Temperature strictness**. Hardware memory caches remained fully localized. No metrics leaked out to global cloud architectures."\n}`;
+            }
+
+            let charIndex = 0;
+            const speedIndicator = document.getElementById('telemetry-speed');
+            speedIndicator.innerText = "52.4 tk/s";
+            speedIndicator.className = "text-cyan-400 font-bold animate-pulse";
+            
+            const streamInterval = setInterval(() => {
+                if (charIndex < responseText.length) {
+                    const chunkSize = Math.floor(Math.random() * 4) + 2;
+                    outputBox.innerText += responseText.substring(charIndex, charIndex + chunkSize);
+                    charIndex += chunkSize;
+                } else {
+                    clearInterval(streamInterval);
+                    runBtn.disabled = false;
+                    runBtn.innerText = "Run Pipeline";
+                    speedIndicator.innerText = "0.0 tk/s";
+                    speedIndicator.className = "text-slate-500 font-bold";
+                    appendConsole("[PIPELINE]: Output generation sequence finished. Cache synchronized offline.", "success");
+                }
+            }, 25);
+        }
+    </script>
+</body>
+</html>
